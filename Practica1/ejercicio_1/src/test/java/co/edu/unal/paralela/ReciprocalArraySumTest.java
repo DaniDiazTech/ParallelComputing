@@ -97,6 +97,8 @@ public class ReciprocalArraySumTest extends TestCase {
         }
         final long parEndTime = System.currentTimeMillis();
 
+
+        // ERROR: Toca dividir con doubles, de lo contrario puede dar Nan
         final long seqTime = (seqEndTime - seqStartTime) / REPEATS;
         final long parTime = (parEndTime - parStartTime) / REPEATS;
 

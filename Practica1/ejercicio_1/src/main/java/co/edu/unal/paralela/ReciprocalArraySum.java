@@ -156,9 +156,9 @@ public final class ReciprocalArraySum {
         ReciprocalArraySumTask leftTask = new ReciprocalArraySumTask(0, mid, input);
         ReciprocalArraySumTask rightTask = new ReciprocalArraySumTask(mid, input.length, input);
 
-        pool.execute(leftTask);
+        pool.execute(leftTask); // Solamente hace el schedule y asgigna la tarea a un thread del pool
         pool.execute(rightTask);
-        leftTask.join();
+        leftTask.join(); // Esperamos a que la tarea termine
         rightTask.join();
         
         sum = leftTask.getValue() + rightTask.getValue();
